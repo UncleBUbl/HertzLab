@@ -1,0 +1,7 @@
+{
+  "name": "HertzLab",
+  "description": "A professional-grade, free-to-use audio frequency generator and analyzer. Features precise tone generation, frequency sweeping, waveform visualization, and an AI-powered audio consultant.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
