@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Brain, Moon, Zap, Sun, Coffee, Sparkles } from 'lucide-react';
+import { Brain, Moon, Zap, Sun, Coffee, Sparkles, Headphones, Speaker } from 'lucide-react';
 import { BinauralSettings, WaveformType } from '../types';
 
 interface BinauralPanelProps {
@@ -27,8 +28,26 @@ const BinauralPanel: React.FC<BinauralPanelProps> = ({ settings, setSettings, is
                 Brainwave Entrainment
             </h2>
             <p className="text-slate-400 text-sm max-w-lg mx-auto">
-                Use stereo headphones. This module plays two slightly different frequencies to create a "phantom" beat inside your brain, encouraging specific mental states.
+                Select your method. Binaural beats require headphones for stereo separation, while Isochronic tones use rapid pulsing effective on any speaker.
             </p>
+        </div>
+
+        {/* Method Switcher */}
+        <div className="flex justify-center mb-4">
+            <div className="bg-slate-900 p-1.5 rounded-xl border border-slate-800 flex items-center gap-1">
+                <button
+                    onClick={() => setSettings({...settings, entrainmentMethod: 'binaural'})}
+                    className={`flex items-center gap-2 px-6 py-2 rounded-lg text-xs font-bold transition-all ${settings.entrainmentMethod === 'binaural' ? 'bg-purple-600 text-white shadow-lg shadow-purple-900/50' : 'text-slate-500 hover:text-white'}`}
+                >
+                    <Headphones className="w-4 h-4" /> Binaural
+                </button>
+                <button
+                    onClick={() => setSettings({...settings, entrainmentMethod: 'isochronic'})}
+                    className={`flex items-center gap-2 px-6 py-2 rounded-lg text-xs font-bold transition-all ${settings.entrainmentMethod === 'isochronic' ? 'bg-pink-600 text-white shadow-lg shadow-pink-900/50' : 'text-slate-500 hover:text-white'}`}
+                >
+                    <Speaker className="w-4 h-4" /> Isochronic
+                </button>
+            </div>
         </div>
 
         {/* Quick Presets */}
@@ -92,7 +111,7 @@ const BinauralPanel: React.FC<BinauralPanelProps> = ({ settings, setSettings, is
                     className="w-full accent-pink-500"
                 />
                 <p className="text-[10px] text-slate-500">
-                    This is the difference between Left and Right ears.
+                    {settings.entrainmentMethod === 'binaural' ? 'The difference between Left and Right ears.' : 'The speed of the volume pulses per second.'}
                 </p>
             </div>
         </div>

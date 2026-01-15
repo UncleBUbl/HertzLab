@@ -1,0 +1,17 @@
+
+{
+  "name": "HertzLab",
+  "short_name": "HertzLab",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#0f172a",
+  "description": "Professional Audio Frequency Generator & Analyzer",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

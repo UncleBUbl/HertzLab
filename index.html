@@ -1,9 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HertzLab - Mind & Frequency</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <title>HertzLab</title>
+    <meta name="description" content="Professional Audio Frequency Generator & Analyzer. Explore sound, binaural beats, and frequency healing." />
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="HertzLab" />
+    <meta property="og:description" content="Professional Audio Frequency Generator & Analyzer." />
+    <meta property="og:image" content="logo.png" />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="apple-touch-icon" href="logo.png" />
+    <link rel="manifest" href="./manifest.json" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script>
@@ -25,6 +42,7 @@
               'breath-in': 'breathIn 4s ease-in-out forwards',
               'breath-hold': 'breathHold 4s linear forwards',
               'breath-out': 'breathOut 4s ease-in-out forwards',
+              'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
             },
             keyframes: {
               breathIn: {
@@ -34,6 +52,10 @@
               breathOut: {
                 '0%': { transform: 'scale(1.5)', opacity: '1' },
                 '100%': { transform: 'scale(1)', opacity: '0.5' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
               }
             }
           }
@@ -44,6 +66,7 @@
       body {
         background-color: #020617; /* Darker, deeper background */
         color: #f8fafc;
+        overscroll-behavior-y: none; /* Prevent pull-to-refresh on mobile */
       }
       /* Custom slider styling */
       input[type=range] {

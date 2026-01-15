@@ -1,6 +1,12 @@
+
 import { GoogleGenAI } from "@google/genai";
 
 export const generateAudioInsight = async (frequency: number, waveform: string, prompt?: string): Promise<string> => {
+  // Offline Check
+  if (!navigator.onLine) {
+    return "OFFLINE_MODE"; // Signal text to handle in UI
+  }
+
   // Initialize on demand to access the latest process.env.API_KEY
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   

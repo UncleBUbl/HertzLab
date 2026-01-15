@@ -1,5 +1,7 @@
-export type WaveformType = 'sine' | 'square' | 'sawtooth' | 'triangle';
-export type AppMode = 'generator' | 'binaural' | 'breath';
+
+export type WaveformType = 'sine' | 'square' | 'sawtooth' | 'triangle' | 'bell' | 'white-noise' | 'pink-noise' | 'brown-noise';
+export type AppMode = 'generator' | 'binaural' | 'breath' | 'chakra';
+export type VisualizerMode = 'waveform' | 'frequency';
 
 export interface OscillatorSettings {
   frequency: number;
@@ -12,6 +14,7 @@ export interface BinauralSettings {
   carrierFreq: number;
   beatFreq: number; // The difference (e.g., 4Hz for Theta)
   waveform: WaveformType;
+  entrainmentMethod: 'binaural' | 'isochronic';
 }
 
 export interface SweepSettings {
